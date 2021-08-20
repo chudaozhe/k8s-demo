@@ -1,0 +1,12 @@
+# tell docker what version of the docker-compose.yml we're using
+version: '3.1'
+services:
+  registry:
+    image: registry
+    restart: always
+    container_name: registry
+    ports:
+      - 5000:5000
+    volumes:
+      - ./registry:/var/lib/registry
+
