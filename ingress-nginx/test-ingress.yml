@@ -2,11 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: test-ingress
+  namespace: default
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
+  tls:
+    - hosts:
+        - harbor.cuiwei.net
+      secretName: test-ingress-secret
   rules:
-    - host: "nginx.cw.net"
+    - host: "harbor.cuiwei.net"
       http:
         paths:
           - pathType: Prefix
