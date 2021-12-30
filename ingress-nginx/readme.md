@@ -3,25 +3,19 @@
 https://github.com/kubernetes/ingress-nginx/blob/main/deploy/static/provider/baremetal/deploy.yaml
 ## 替换镜像url
 ```
-#192.168.10.104:5000为本地镜像
 将
-k8s.gcr.io/ingress-nginx/controller:v1.0.0@sha256:0851b34f69f69352bf168e6ccf30e1e20714a264ab1ecd1933e4d8c0fc3215c6
+k8s.gcr.io/ingress-nginx/controller:v1.1.0@sha256:f766669fdcf3dc26347ed273a55e754b427eb4411ee075a53f30718b4499076a
 替换为
-192.168.10.104:5000/k8s.gcr.io/ingress-nginx/controller:v1.0.0
+registry.cn-hangzhou.aliyuncs.com/cuiw/k8s.gcr.io-ingress-nginx-controller:v1.1.0
 
 
 将
-k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.0@sha256:f3b6b39a6062328c095337b4cadcefd1612348fdd5190b1dcbcb9b9e90bd8068
+k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.1.1@sha256:64d8c73dca984af206adf9d6d7e46aa550362b1d7a01f3a0a91b20cc67868660
 替换为
-192.168.10.104:5000/k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.0
+registry.cn-hangzhou.aliyuncs.com/cuiw/k8s.gcr.io_ingress-nginx_kube-webhook-certgen:v1.1.1
 ```
 
 # 安装
 ```
 kubectl apply -f deploy.yaml
-
-kubectl apply -f nginx-deployment.yaml
-kubectl apply -f nginx-service.yaml
-
-kubectl apply -f test-ingress.yml
 ```

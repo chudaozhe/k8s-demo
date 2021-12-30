@@ -185,9 +185,12 @@ spec:
       labels:
         k8s-app: kubernetes-dashboard
     spec:
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: kubernetes-dashboard
-          image: registry.cw.net:5000/kubernetesui/dashboard:v2.3.1
+          image: registry.cn-hangzhou.aliyuncs.com/cuiw/kubernetesui_dashboard:v2.4.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8443
@@ -266,12 +269,13 @@ spec:
     metadata:
       labels:
         k8s-app: dashboard-metrics-scraper
-      annotations:
-        seccomp.security.alpha.kubernetes.io/pod: 'runtime/default'
     spec:
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: dashboard-metrics-scraper
-          image: registry.cw.net:5000/kubernetesui/metrics-scraper:v1.0.6
+          image: registry.cn-hangzhou.aliyuncs.com/cuiw/kubernetesui_metrics-scraper:v1.0.7
           ports:
             - containerPort: 8000
               protocol: TCP
@@ -283,8 +287,8 @@ spec:
             initialDelaySeconds: 30
             timeoutSeconds: 30
           volumeMounts:
-          - mountPath: /tmp
-            name: tmp-volume
+            - mountPath: /tmp
+              name: tmp-volume
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true

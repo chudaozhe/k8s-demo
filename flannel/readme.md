@@ -7,7 +7,7 @@ https://github.com/flannel-io/flannel/blob/master/Documentation/kube-flannel.yml
 
       containers:
       - name: kube-flannel
-        image: 192.168.10.104:5000/quay.io/coreos/flannel:v0.14.0
+        image: registry.cn-hangzhou.aliyuncs.com/cuiw/quay.io_coreos_flannel:v0.15.1
         command:
         - /opt/bin/flanneld
         args:
