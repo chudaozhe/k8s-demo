@@ -398,6 +398,7 @@ spec:
       nodeSelector:
         kubernetes.io/os: linux
       serviceAccountName: ingress-nginx
+      hostNetwork: true
       terminationGracePeriodSeconds: 300
       volumes:
         - name: webhook-cert
